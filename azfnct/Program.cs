@@ -11,6 +11,7 @@ builder.ConfigureFunctionsWebApplication();
 builder.Services
     .AddApplicationInsightsTelemetryWorkerService()
     .ConfigureFunctionsApplicationInsights()
-    .AddSingleton<ITableTransformService, TableTransformService>();
+    .AddSingleton<ITableTransformService, TableTransformService>()
+    .AddSingleton<IContentTransformService, ContentTransformService>();
 
 builder.Build().Run();
