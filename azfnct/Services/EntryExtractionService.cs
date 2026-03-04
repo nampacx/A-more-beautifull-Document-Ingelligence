@@ -7,18 +7,6 @@ namespace nampacx.docintel.Services;
 
 public partial class EntryExtractionService : IEntryExtractionService
 {
-    public EntryExtractionResultDto ExtractEntriesFromFile(string filePath)
-    {
-        if (string.IsNullOrWhiteSpace(filePath))
-            throw new ArgumentException("File path cannot be empty.", nameof(filePath));
-
-        if (!File.Exists(filePath))
-            throw new FileNotFoundException("JSON file was not found.", filePath);
-
-        string jsonPayload = File.ReadAllText(filePath);
-        return ExtractEntries(jsonPayload);
-    }
-
     public EntryExtractionResultDto ExtractEntries(string jsonPayload)
     {
         if (string.IsNullOrWhiteSpace(jsonPayload))

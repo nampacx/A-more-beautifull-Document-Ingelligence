@@ -6,18 +6,6 @@ namespace nampacx.docintel.Services;
 
 public class ContentTransformService : IContentTransformService
 {
-    public DocumentContentResultDto ExtractPageAndParagraphContentFromFile(string filePath)
-    {
-        if (string.IsNullOrWhiteSpace(filePath))
-            throw new ArgumentException("File path cannot be empty.", nameof(filePath));
-
-        if (!File.Exists(filePath))
-            throw new FileNotFoundException("JSON file was not found.", filePath);
-
-        string jsonPayload = File.ReadAllText(filePath);
-        return ExtractPageAndParagraphContent(jsonPayload);
-    }
-
     public DocumentContentResultDto ExtractPageAndParagraphContent(string jsonPayload)
     {
         if (string.IsNullOrWhiteSpace(jsonPayload))
